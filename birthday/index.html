@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="bday.png" />
+  <title>happy birthday @soulatte</title>
+  <link rel="icon" href="https://i.ibb.co.com/hXZsYxZ/heart.png">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #1e3a8a;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    .page {
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    .page.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: #1e3a8a;
+      font-weight: bold;
+    }
+
+    .button {
+      background-color: #1e3a8a;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #2c4ca5;
+    }
+
+    img {
+      max-width: 70vw;
+      max-height: 50vh;
+      margin-bottom: 20px;
+    }
+
+    .letter {
+      white-space: pre-line;
+      font-size: 1.1rem;
+      max-width: 600px;
+      text-align: left;
+      border-left: 3px solid #1e3a8a;
+      padding-left: 15px;
+      min-height: 200px;
+    }
+
+    .falling {
+      position: fixed;
+      top: -30px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .blue-heart {
+      color: #1e3a8a;
+    }
+
+    .yellow-star {
+      color: #facc15;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+
+      .letter {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page active" id="page1">
+    <img src="1.gif" alt="Cute Icon" />
+    <h1>Happy Birthday <span class="highlight">Baby's Lu G Lyy ˶ᵔ ᵕ ᵔ˶ ♡</span></h1>
+    <p>You get more amazing every year. I’m so lucky to love someone who makes the world feel softer just by existing.👀</p>
+    <button class="button" onclick="goToPage(4)">‹𝟹</button>
+  </div>
+
+ <div class="page" id="page4">
+    <img src="uwu.gif" alt="Cute Icon" />
+    <h1>Officially an Adult...😏</h1>
+    <p>You’re 18 now, which means you can drink, drive, and still be my favorite baby boiiiiii. ꉂ(˵˃ ᗜ ˂˵)</p>
+    <button class="button" onclick="goToPage(5)">‹𝟹</button>
+</div>
+
+<div class="page" id="page5">
+    <img src="my_baby.jpg" alt="Cute Icon" />
+    <h1>I’m Gonna Cry. You’re Too Cute. .·°՞(っ-ᯅ-ς)՞°·.</h1>
+    <p>You’re so cute it’s actually offensive. Like?? Who gave you permission to look too cute??!!!<br> someone else falls for you, KoKoh's Bby will really really mad. So stop being cute.😡💢 </p>
+    <button class="button" onclick="goToPage(6)">‹𝟹</button>
+</div>
+
+ <div class="page" id="page6">
+    <img src="sad.gif" alt="Cute Icon" />
+    <h1>I Wish I Could Be There 𐔌՞. .՞𐦯</h1>
+    <p>I hate being far. I hate not getting to hug you when you need it. But I love you more than anything, <br>and I’m holding you in every thought. We’ll close the gap soon. PROMISE PROMISE</p>
+    <button class="button" onclick="goToPage(2)">‹𝟹</button>
+</div>
+
+  <div class="page" id="page2">
+    <img src="write.gif" alt="Envelope" />
+    <p>Knock knock… delivery for the cutest boy alive 🚚💌</p>
+    <button class="button" onclick="goToPage(3)">open it ‹𝟹</button>
+  </div>
+
+  
+
+<div class="page" id="page3" style="font-family: 'Dancing Script', cursive;">
+    <h2>My Precious, soulatte <𝟑 .ᐟ </h2>
+    <div class="letter" id="letterText"></div>
+</div>
+
+  <audio id="bg-music" src="Party.mp3" autoplay loop muted></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const fullLetter = `Happy birthday to my sweetest soul! 💙
+
+It's your 18th birthday, and here I am wondering how lucky I am to be in love with you. Although we are worlds apart, you're as close as my heart gets to you. I wish I could snuggle you, feed you cake, and sleep on your shoulder.
+
+You're 18 now, but you'll always be the boy who cracks me up when I'm crying, who sends soporific texts that calm my heart, and who makes being apart not so lonely.
+
+So today, I want you to feel loved in every way. I want you to smile so big your cheeks hurt. And I want you to know that I'm here, loving you loudly, even quietly.
+With all my love,
+your little bby 𐙚 `;
+
+    function goToPage(pageNum) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      const next = document.getElementById(`page${pageNum}`);
+      next.classList.add('active');
+
+      if (pageNum === 3) {
+        const music = document.getElementById("bg-music");
+        music.muted = false;
+        music.play().catch(e => console.log("Autoplay blocked:", e));
+
+        confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+        typeText(fullLetter, document.getElementById('letterText'), 25);
+        startFallingSymbols();
+      }
+    }
+
+    function typeText(text, element, speed) {
+      element.innerHTML = '';
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    function startFallingSymbols() {
+      setInterval(() => {
+        const el = document.createElement('div');
+        el.classList.add('falling');
+        const isHeart = Math.random() < 0.5;
+        el.innerText = isHeart ? '💙' : '⭐';
+        el.classList.add(isHeart ? 'blue-heart' : 'yellow-star');
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.animationDuration = (3 + Math.random() * 2) + 's';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 6000);
+      }, 300);
+    }
+  </script>
+</body>
+</html>
